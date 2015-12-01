@@ -1,2 +1,3 @@
-# MsS2015Beispiel
-Microservices Summit 2015 -- Beispiel
+# Microservices Summit 2015 -- Beispiel
+
+Einfaches Beispiel für eine Applikation mit Netflix-Stack

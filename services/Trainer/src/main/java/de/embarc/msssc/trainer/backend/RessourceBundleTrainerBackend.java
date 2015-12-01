@@ -66,11 +66,12 @@ public class RessourceBundleTrainerBackend implements TrainerBackend {
 
     protected String getString(String id, String propertyName) {
         String key = id + "." + propertyName;
+        String value = null;
 
-        if (bundle.containsKey(key)) {
-            return bundle.getString(key);
-        } else {
-            return null;
+        if (bundle.containsKey(key) && !bundle.getString(key).equals("")) {
+            value = bundle.getString(key);
         }
+
+        return value;
     }
 }

@@ -1,0 +1,50 @@
+// NOTE: This module is intended to be a stand-alone example which does depend on nebula.
+defaultTasks 'clean', 'fatJar'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    compile
+}
+
+dependencies {
+    compile 'com.netflix.feign:feign-core:8.7.0'
+    compile 'com.netflix.feign:feign-gson:8.7.0'
+}
+
+task fatJar(dependsOn: classes, type: Jar) {
+    classifier 'fat'
+
+    doFirst {
+        // Delay evaluation until the compile configuration is ready
+        from {
+            configurations.compile.collect { zipTree(it) }
+        }
+    }
+
+    from(sourceSets*.output.classesDir) {
+    }
+
+    manifest {
+        attributes 'Main-Class': 'de.embarc.msssc.trainer.client.FeignClient'
+    }
+
+    // for convenience, we make a file in the build dir named hello with no extension
+    doLast {
+        def srcFile = new File("${buildDir}/libs/${archiveName}")
+        def shortcutFile = new File("${buildDir}/trainer")
+        shortcutFile.delete()
+        shortcutFile << "#!/usr/bin/env sh\n"
+        shortcutFile << 'exec java -jar $0 "$@"' + "\n"
+        shortcutFile << srcFile.bytes
+        shortcutFile.setExecutable(true, true)
+        srcFile.delete()
+        srcFile << shortcutFile.bytes
+        srcFile.setExecutable(true, true)
+    }
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Willkommen</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<img src="images/mss_logo.png"/>
+
+<h1>Willkommen beim Microservices Summit</h1>
+
+<h2>Ihre Trainer</h2>
+<ul>
+    <li th:each="trainer : ${allTrainers}">
+        <a th:href="'detail_'+${trainer.id}+'.html'" th:text="${trainer.name}">Max Mustermann</a>
+    </li>
+</ul>
+</body>
+</html>

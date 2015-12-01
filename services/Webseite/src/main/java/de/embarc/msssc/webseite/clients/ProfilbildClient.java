@@ -1,0 +1,13 @@
+package de.embarc.msssc.webseite.clients;
+
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+@FeignClient("profilbild")
+public interface ProfilbildClient {
+    @RequestMapping(method = RequestMethod.GET, value = "/profilbild")
+    public Profilbild getProfilbild(@RequestParam("email") String email);
+}

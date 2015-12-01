@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Willkommen</title>
+    <link rel="stylesheet" href="style.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<img src="images/mss_logo.png"/>
+
+<h1>Willkommen beim Microservices Summit</h1>
+
+<h2 th:text="${trainer.name}">Trainer XY</h2>
+
+<h3 th:text="${trainer.firma}">Firma</h3>
+
+<p>
+    <img th:src="'/trainer_'+${trainer.id}+'.jpg'"/>
+<ul>
+    <li th:if="${trainer.homepage} != null">
+        <a th:href="${trainer.homepage}">Homepage</a>
+    </li>
+    <li><a th:href="'mailto:'+${trainer.email}">E-Mail</a></li>
+    <li><a th:href="'http://twitter.com/'+${trainer.twitter}" th:text="'@'+${trainer.twitter}">@Twitter</a></li>
+</ul>
+</p>
+
+<p th:text="${trainer.beschreibung}">
+    Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
+    incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+    nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.
+    Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit
+    anim id est laborum.
+</p>
+
+</body>
+</html>

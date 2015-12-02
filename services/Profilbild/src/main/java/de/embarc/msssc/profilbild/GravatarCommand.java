@@ -8,6 +8,7 @@ import com.timgroup.jgravatar.GravatarRating;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 public class GravatarCommand extends HystrixCommand<Profilbild> {
@@ -22,36 +23,33 @@ public class GravatarCommand extends HystrixCommand<Profilbild> {
 
     @Override
     protected Profilbild run() throws Exception {
+        Gravatar gravatar = new Gravatar();
+        gravatar.setRating(GravatarRating.GENERAL_AUDIENCES);
+        gravatar.setDefaultImage(GravatarDefaultImage.HTTP_404);
 
-        try {
-            Gravatar gravatar = new Gravatar();
-            gravatar.setRating(GravatarRating.GENERAL_AUDIENCES);
-            gravatar.setDefaultImage(GravatarDefaultImage.HTTP_404);
+        byte[] data = gravatar.download(email);
+        Profilbild id = new Profilbild();
 
-            byte[] data = gravatar.download(email);
-
-            if (data == null) {
-                throw new IllegalArgumentException("No Gravatar for " + email);
-            }
-
-            Profilbild id = new Profilbild();
-            id.setData(data);
-
-            return id;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
+        if (data == null) {
+            data = bildLaden("images/standard_black_60x60.jpg");
+            id.setInfo("kein Bild bei Gravatar gefunden");
         }
+        id.setData(data);
+
+        return id;
     }
 
     @Override
     protected Profilbild getFallback() {
         Profilbild id = new Profilbild();
+        id.setInfo("Fallback");
+        id.setData(bildLaden("images/standard_red_60x60.jpg"));
+        return id;
+    }
 
-
+    private byte[] bildLaden(String dateiname) {
         try {
-            InputStream stream = ClassLoader.getSystemResourceAsStream("images/standard_black_60x60.jpg");
+            InputStream stream = ClassLoader.getSystemResourceAsStream(dateiname);
             BufferedInputStream bis = new BufferedInputStream(stream);
             ByteArrayOutputStream target = new ByteArrayOutputStream(32000);
 
@@ -61,12 +59,9 @@ public class GravatarCommand extends HystrixCommand<Profilbild> {
             }
             stream.close();
 
-            id.setData(target.toByteArray());
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            return target.toByteArray();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
-        return id;
     }
 }

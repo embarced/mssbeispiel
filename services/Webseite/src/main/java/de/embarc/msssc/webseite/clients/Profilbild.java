@@ -4,19 +4,9 @@ public class Profilbild {
 
     private String info;
 
-    private byte[] daten;
-
-    private int groesse;
+    private byte[] data;
 
     public Profilbild() {
-    }
-
-    public int getGroesse() {
-        return groesse;
-    }
-
-    public void setGroesse(int groesse) {
-        this.groesse = groesse;
     }
 
     public String getInfo() {
@@ -27,11 +17,11 @@ public class Profilbild {
         this.info = info;
     }
 
-    public byte[] getDaten() {
-        return daten;
+    public byte[] getData() {
+        return data;
     }
 
-    public void setDaten(byte[] daten) {
-        this.daten = daten;
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }

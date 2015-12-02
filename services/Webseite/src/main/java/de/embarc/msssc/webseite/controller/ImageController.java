@@ -32,7 +32,7 @@ public class ImageController {
         response.setContentType("image/jpeg");
 
         BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
-        bos.write(bild.getDaten());
+        bos.write(bild.getData());
         bos.flush();
         bos.close();
     }

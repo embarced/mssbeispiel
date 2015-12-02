@@ -18,10 +18,17 @@
     <img th:src="'/trainer_'+${trainer.id}+'.jpg'"/>
 <ul>
     <li th:if="${trainer.homepage} != null">
+        <img src="images/homepage_16x16.png"/>
         <a th:href="${trainer.homepage}">Homepage</a>
     </li>
-    <li><a th:href="'mailto:'+${trainer.email}">E-Mail</a></li>
-    <li><a th:href="'http://twitter.com/'+${trainer.twitter}" th:text="'@'+${trainer.twitter}">@Twitter</a></li>
+    <li th:if="${trainer.email} != null">
+        <img src="images/email_16x16.png"/>
+        <a th:href="'mailto:'+${trainer.email}">E-Mail</a>
+    </li>
+    <li th:if="${trainer.twitter} != null">
+        <img src="images/twitter_16x16.png"/>
+        <a th:href="'http://twitter.com/'+${trainer.twitter}" th:text="'@'+${trainer.twitter}">@Twitter</a>
+    </li>
 </ul>
 </p>
 

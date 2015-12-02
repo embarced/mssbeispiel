@@ -1,0 +1,11 @@
+server:
+  port: 0
+
+info:
+  component: Profilbild
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    registryFetchIntervalSeconds: 5

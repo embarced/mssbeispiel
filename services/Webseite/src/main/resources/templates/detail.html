@@ -15,7 +15,7 @@
 <h3 th:text="${trainer.firma}">Firma</h3>
 
 <p>
-    <img th:src="'/trainer_'+${trainer.id}+'.jpg'"/>
+    <img th:src="'/trainer_'+${trainer.id}+'.jpg'" height="60" width="60"/>
 <ul>
     <li th:if="${trainer.homepage} != null">
         <img src="images/homepage_16x16.png"/>

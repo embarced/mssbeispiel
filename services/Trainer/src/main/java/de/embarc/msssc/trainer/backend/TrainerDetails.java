@@ -1,6 +1,6 @@
 package de.embarc.msssc.trainer.backend;
 
-public class TrainerDetails extends TrainerInfo {
+public class TrainerDetails extends TrainerInfo implements Comparable<TrainerDetails> {
 
     private String vorname;
     private String nachname;
@@ -64,5 +64,11 @@ public class TrainerDetails extends TrainerInfo {
         info.setName(this.name);
         info.setEmail(this.email);
         return info;
+    }
+
+
+    @Override
+    public int compareTo(TrainerDetails o) {
+        return this.nachname.compareTo(o.nachname);
     }
 }

@@ -18,6 +18,7 @@ public class RessourceBundleTrainerBackend implements TrainerBackend {
         trainerInfos = new ArrayList<>();
         trainerDetails = new HashMap<>();
 
+        List<TrainerDetails> trainerList = new ArrayList<>();
 
         Set<String> ids = alleIds();
         for (String id: ids) {
@@ -40,7 +41,12 @@ public class RessourceBundleTrainerBackend implements TrainerBackend {
             details.setName(name);
 
             trainerDetails.put(id, details);
-            trainerInfos.add(details.getInfo());
+            trainerList.add(details);
+        }
+
+        Collections.sort(trainerList);
+        for (TrainerDetails td : trainerList) {
+            trainerInfos.add(td.getInfo());
         }
 
     }

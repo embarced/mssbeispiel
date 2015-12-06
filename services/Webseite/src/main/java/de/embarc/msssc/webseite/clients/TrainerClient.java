@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-
 @FeignClient("trainer")
 public interface TrainerClient {
 

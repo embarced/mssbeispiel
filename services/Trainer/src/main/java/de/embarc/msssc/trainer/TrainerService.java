@@ -24,7 +24,7 @@ public class TrainerService {
     }
 
     @RequestMapping("/trainer/{id}")
-    public TrainerDetails trainerDetail(@PathVariable String id) {
+    public TrainerDetails trainerDetails(@PathVariable String id) {
         TrainerDetails result = backend.trainerDetails(id);
         if (result == null) {
             throw new ResourceNotFoundException();

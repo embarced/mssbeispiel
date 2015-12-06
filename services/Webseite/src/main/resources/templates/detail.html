@@ -5,20 +5,16 @@
     <link rel="stylesheet" href="style.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body>
+<body id="detail">
 <div id="main">
 <div id="content">
     <a href="/"><img src="images/mss_logo.png"/></a>
 
-<h1>Willkommen beim Microservices Summit</h1>
+    <h1>Willkommen beim Microservices Summit</h1>
 
-<h2 th:text="${trainer.name}">Trainer XY</h2>
-
-<h3 th:text="${trainer.firma}">Firma</h3>
-
-<p>
-    <img th:src="'/trainer_'+${trainer.id}+'.jpg'" height="60" width="60"/>
-<ul>
+    <h2 th:text="${trainer.name}+', '+${trainer.firma}">Trainer, Firma</h2>
+    <img id="profilbild" th:src="'/trainer_'+${trainer.id}+'.jpg'" height="60" width="60"/>
+    <ul>
     <li th:if="${trainer.homepage} != null">
         <img src="images/homepage_16x16.png"/>
         <a th:href="${trainer.homepage}" target="_blank">Homepage</a>
@@ -32,17 +28,18 @@
         <a th:href="'http://twitter.com/'+${trainer.twitter}" th:text="'@'+${trainer.twitter}"
            target="_blank">@Twitter</a>
     </li>
-</ul>
-</p>
+    </ul>
 
-<p th:text="${trainer.beschreibung}">
+    <p th:text="${trainer.beschreibung}">
     Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
     incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
     nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.
     Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit
     anim id est laborum.
-</p>
+    </p>
+
+    <hr/>
 </div>
 </div>
 </body>

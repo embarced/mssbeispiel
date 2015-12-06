@@ -5,12 +5,23 @@
     <link rel="stylesheet" href="/style.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body>
+<body id="home">
 <div id="main">
 <div id="content">
     <img src="images/mss_logo.png"/>
 
     <h1>Willkommen beim Microservices Summit</h1>
+
+    <p>
+        Der brandneue Microservices Summit vermittelt Ihnen in drei Tagen die wichtigsten Microservices-Themen in
+        kompakter und intensiver Form.
+        Das große Trainingsevent bietet Ihnen zusammen mit dem parallel stattfindenden Java Enterprise Summit insgesamt
+        24 Power Workshops mit 16 der bekanntesten deutschsprachigen Microservices– und Java Enterprise-Experten.
+        Nutzen Sie auch die einmalige Chance, Ihre individuellen Fragen und Herausforderungen mit den Experten vor Ort
+        intensiv zu diskutieren.
+        Dieses einzigartige Microservice-Event sollten Sie auf keinen Fall verpassen!
+    </p>
+    <hr/>
 
     <h2>Ihre Trainer</h2>
     <ul>
@@ -18,6 +29,7 @@
         <a th:href="'detail_'+${trainer.id}+'.html'" th:text="${trainer.name}">Max Mustermann</a>
     </li>
     </ul>
+
 </div>
 </div>
 </body>

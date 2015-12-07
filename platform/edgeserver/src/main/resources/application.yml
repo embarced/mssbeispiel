@@ -1,0 +1,9 @@
+server:
+  port: 8765
+  
+zuul:
+  ignoredServices: "*"
+  routes:
+    webseite:
+      path: /webseite/**
+      strip-prefix: true

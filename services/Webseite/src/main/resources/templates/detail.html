@@ -8,12 +8,12 @@
 <body id="detail">
 <div id="main">
 <div id="content">
-    <a href="/"><img src="images/mss_logo.png"/></a>
+    <a href="./"><img src="images/mss_logo.png"/></a>
 
     <h1>Willkommen beim Microservices Summit</h1>
 
     <h2 th:text="${trainer.name}+', '+${trainer.firma}">Trainer, Firma</h2>
-    <img id="profilbild" th:src="'/trainer_'+${trainer.id}+'.jpg'" height="60" width="60"/>
+    <img id="profilbild" th:src="'trainer_'+${trainer.id}+'.jpg'" height="60" width="60"/>
     <ul>
     <li th:if="${trainer.homepage} != null">
         <img src="images/homepage_16x16.png"/>

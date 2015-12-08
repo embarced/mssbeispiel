@@ -3,7 +3,7 @@ server:
 
 info:
   component: Trainer
-  description: Service liefert Daten zu den Trainern des Events
+  description: Service liefert Daten zu den Trainern eines Events.
 
 eureka:
   instance:

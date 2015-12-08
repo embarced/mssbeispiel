@@ -3,6 +3,7 @@ server:
 
 info:
   component: Profilbild
+  description: Service liefert ein Profilbild (aka Avatar) zu einer E-Mail-Adresse.
 
 eureka:
   instance:

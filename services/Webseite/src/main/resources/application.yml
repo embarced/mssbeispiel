@@ -3,6 +3,7 @@ server:
 
 info:
   component: Webseite
+  description: Der Service liefert eine einfache Webseite, die andere Services zusammenfasst.
 
 eureka:
   instance:

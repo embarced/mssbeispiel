@@ -36,10 +36,11 @@ public class HomeController {
         }
 
         @Override
-        protected List<Trainer> run() throws Exception {
+        protected List<Trainer> run() {
             return trainerClient.getAll();
         }
 
+        @Override
         protected List<Trainer> getFallback() {
             return Collections.emptyList();
         }

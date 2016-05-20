@@ -1,4 +1,4 @@
-# Microservices Summit 2015 -- Beispiel
+# Microservices Summit - Beispiel
 
 Einfaches Beispiel für eine Applikation mit Netflix-Stack.
 Rückmeldungen gerne an Stefan Zörner (sz@embarc.de) und Harm Gnoke (hg@embarc.de).

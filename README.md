@@ -3,6 +3,8 @@
 Einfaches Beispiel für eine Applikation mit Netflix-Stack.
 Rückmeldungen gerne an Stefan Zörner (sz@embarc.de) und Harm Gnoke (hg@embarc.de).
 
+Start aller Services über <pre><code>run-all.sh</code></pre>
+
 ![showcase](showcaseHome_klein.png)
 
 Eingesetzte Technologien:

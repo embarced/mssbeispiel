@@ -1,7 +1,8 @@
 # Microservices Summit - Beispiel
 
-Einfaches Beispiel für eine Applikation mit Netflix-Stack.
-Rückmeldungen gerne an Stefan Zörner (sz@embarc.de) und Harm Gnoyke (hg@embarc.de).
+Einfaches Beispiel für eine Applikation mit Netflix-Stack. 
+Ursprünglich erstellt von Harm Gnoyke und Stefan Zörner für einen Workshop auf dem Microservices Summit. 
+Rückmeldungen gerne an sz@embarc.de.
 
 Start aller Services über <pre><code>run-all.sh</code></pre>
 
